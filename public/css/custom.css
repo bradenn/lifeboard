@@ -55,10 +55,16 @@ body {
     }
 }
 
+h5{
+    font-weight: 500;
+    color: var(--text);
+}
+
 /*Cards*/
 .card {
+    max-width: 500px;
     color: var(--text);
-    background-color: var(--foreground);
+    background-color: var(--background);
     box-shadow: var(--box-shadow);
     border: var(--border);
     border-radius: var(--border-radius);
@@ -67,8 +73,12 @@ body {
 }
 
 .card-title {
-    font-size: 17px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-title.list{
+    padding-left: 20px;
 }
 
 /*Sidebar*/
@@ -121,7 +131,9 @@ body {
 
 /*Content*/
 .content {
-    margin-left: 300px !important;
+    display: block;
+    width: 75%;
+    margin-left: 275px !important;
     padding-top: 0.25em;
 }
 
@@ -129,9 +141,34 @@ body {
     font-size: 2em;
     margin-top: .5em;
     color: var(--text);
+    margin-bottom: 0.5em;
 }
 
 /*Agenda*/
+.agenda{
+    display: flex;
+}
+
+.agenda > .day{
+    width: 8em;
+    text-align: center;
+    margin-right: 0.25em;
+    padding: 0.25em 0.5em;
+    border-radius: var(--border-radius);
+    border: var(--border);
+}
+
+.day.active{
+    background-color: var(--foreground);
+    color: var(--text);
+}
+
+/*Lists*/
+.list-group-item{
+    background-color: var(--background);
+    border-bottom: var(--border);
+}
+
 
 /*Nav*/
 .nav-theme {
