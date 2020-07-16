@@ -73,8 +73,8 @@ body {
 
 /*Sidebar*/
 .sidebar {
-    margin: 0.5em;
-    padding: 0;
+    margin: 0;
+    padding: 0.25em;
     width: 250px;
     background-color: var(--background);
     position: fixed;
@@ -84,7 +84,7 @@ body {
     font-weight: 400;
 }
 
-.sidebar > .title{
+.sidebar > .title {
     display: flex;
     align-content: center;
     align-items: center;
@@ -95,12 +95,12 @@ body {
     font-weight: 400;
 }
 
-.sidebar > .title > img{
+.sidebar > .title > img {
     margin-right: 0.25em;
     height: 1.25em;
 }
 
-.sidebar > a{
+.sidebar > a {
     display: block;
     margin: 1em;
     padding: 0.5em 1em;
@@ -109,7 +109,7 @@ body {
     text-decoration: none;
 }
 
-.sidebar > a.active{
+.sidebar > a.active {
     display: block;
     margin: 1em;
     padding: 0.5em 1em;
@@ -119,6 +119,19 @@ body {
     text-decoration: none;
 }
 
+/*Content*/
+.content {
+    margin-left: 300px !important;
+    padding-top: 0.25em;
+}
+
+.content > .title {
+    font-size: 2em;
+    margin-top: .5em;
+    color: var(--text);
+}
+
+/*Agenda*/
 
 /*Nav*/
 .nav-theme {
