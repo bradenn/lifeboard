@@ -1,0 +1,123 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/nav.ejs') %>
+
+<div class="container d-flex">
+    <div class="col d-none d-lg-block d-xl-block"></div>
+    <div class="col-xl-6 col-xs-12">
+        <div class="post">
+            <div class="d-flex justify-content-between">
+                <div class="post-header">
+                    <div class="post-title">
+                            <span class="circle-<%= (post.likes.length >= post.dislikes.length) ? 'primary' : 'secondary' %>">
+                              <i class="fas fa-balance-scale-right fa-fw"></i>
+                            </span>
+                    </div>
+                    <div class="post-subtitle">
+                        <div class="mb-n1"><%= post.title %></div>
+                        <div class="text-secondary" style="font-size: 14px;"><%= timeSince(new Date(post.date)) %>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-standing">
+                    <a href="#" class="text-primary"><i class="fas fa-chevron-up"></i></a>
+                    <span class="mx-3"><%= post.likes.length - post.dislikes.length %></span>
+                    <a href="#" class="text-primary"><i class="fas fa-chevron-down"></i></a>
+                </div>
+
+            </div>
+            <div class="post-body">
+                <%= post.body %>
+            </div>
+            <div class="post-footer">
+                <a href="#">Comment</a>
+                <a href="#">Share</a>
+                <a href="#">Report</a>
+            </div>
+            <div class="discussion">
+                <form action="/post/<%= post._id %>/comment">
+                    <div class="form-group">
+                        <textarea class="form-control" rows="4"></textarea>
+                        <div class="d-flex justify-content-end">
+                            <input type="submit" value="Comment" class="btn btn-primary btn-sm mt-1"/>
+                        </div>
+                    </div>
+                </form>
+                <% comments.forEach(comment => { %>
+                    <%- renderComment(comment) %>
+                <% }); %>
+            </div>
+        </div>
+
+        <%
+        function renderComment(comment) {
+            return `
+                <div class='comment'>
+                    <div class='comment-container'>
+
+                                <div class='comment-header'>
+                                    <a href="${comment.user.username}">${comment.user.username}</a> &bullet; <span class='comment-meta'>${timeSince(new Date(comment.date))}</span>
+                                </div>
+                                <div class='comment-body'>
+                                    ${comment.body}
+                                </div>
+                                <div class='comment-footer comment-meta'>
+                                    <a href="#"><i class="fas fa-chevron-up"></i></a>
+                                    <span>${comment.likes - comment.dislikes}</span>
+                                    <a href="#"><i class="fas fa-chevron-down"></i></a>
+                                    <span>|</span>
+                                    <a href="#">Reply</a>
+                                    <a href="#">Share</a>
+                                    <a href="#">Report</a>
+
+                                </div>
+
+                    </div>
+                    ${parseChildren(comment.children)}
+                </div>
+           `;
+        }
+
+        function parseChildren(children) {
+            if (children != null) {
+                return children.map(child => `${renderComment(child)}`).join('\n');
+            }
+        }
+
+
+        function timeSince(date) {
+
+            var seconds = Math.floor((new Date() - date) / 1000);
+
+            var interval = Math.floor(seconds / 31536000);
+
+            if (interval > 1) {
+                return interval + " years ago";
+            }
+            interval = Math.floor(seconds / 2592000);
+            if (interval > 1) {
+                return interval + " months ago";
+            }
+            interval = Math.floor(seconds / 86400);
+            if (interval > 1) {
+                return interval + " days ago";
+            }
+            interval = Math.floor(seconds / 3600);
+            if (interval > 1) {
+                return interval + " hours ago";
+            }
+            interval = Math.floor(seconds / 60);
+            if (interval > 1) {
+                return interval + " minutes ago";
+            }
+            return "Just now";
+        }
+        %>
+    </div>
+    <div class="col d-none d-lg-block d-xl-block"></div>
+    <!--    <div class="col-3 d-none d-lg-block d-xl-block">-->
+    <!--        <div class="card"></div>-->
+    <!--    </div>-->
+
+</div>
+
+<%- include('partials/footer.ejs') %>

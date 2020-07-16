@@ -1,0 +1,10 @@
+<%
+let isActive = (target) => {
+    return (url === target || (url.includes('post') && target === '/discussion'))?'active':'';
+};
+%>
+<div class="sidebar">
+    <span class="title"><img src="/images/logo.png">Life<b>Board</b></span>
+    <a href="#" class="active">Dashboard</a>
+    <a href="#">Todo</a>
+</div>

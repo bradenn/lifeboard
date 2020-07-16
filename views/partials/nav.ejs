@@ -1,0 +1,49 @@
+<%
+let isActive = (target) => {
+    return (url === target || (url.includes('post') && target === '/discussion'))?'active':'';
+};
+%>
+<nav class="navbar navbar-expand-lg nav-theme">
+    <div class="container px-1">
+        <div class="flex-container">
+            <div class="flex-sm">
+                <a class="navbar-brand" href="/">Namebrand</a>
+            </div>
+            <div class="flex-sp"></div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="flex-lg">
+                    <ul class="navbar-nav flex-it">
+                        <li class="menu-item nav-item <%= isActive('/') %>">
+                            <a class="menu-item nav-link" href="/">All</a>
+                        </li>
+                        <li class="menu-item nav-item <%= isActive('/opinion') %>">
+                            <a class="nav-link" href="/opinion">Opinions</a>
+                        </li>
+                        <li class="menu-item nav-item <%= isActive('/discussion') %>">
+                            <a class="nav-link" href="/discussion">Discussions</a>
+                        </li>
+                        <li class="menu-item nav-item <%= isActive('/contribute') %>">
+                            <a class="nav-link" href="/contribute">Contribute</a>
+                        </li>
+                        <li class="menu-item nav-item <%= isActive('/profile') %>">
+                            <a class="nav-link" href="/profile">Profile</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-sp"></div>
+                <div class="flex-sm">
+                    <ul class="navbar-nav" style="justify-content: flex-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</nav>

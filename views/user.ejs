@@ -1,0 +1,82 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/nav.ejs') %>
+
+<div class="container d-flex ">
+    <div class="col-3 order-sm-0 order-md-0">
+        <div class="card"></div>
+    </div>
+    <div class="col-6 order-sm-2 order-md-1">
+        <% posts.forEach(post => { %>
+            <div class="card">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <span class="fancy-bg">
+                              <i class="fas fa-balance-scale-right fa-fw"></i>
+                            </span>
+                        </div>
+                        <div>
+                            <div>
+                                <div class="mb-n1"><%= post.title %></div>
+                                <div class="text-secondary">1 day ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="badge badge-primary">71% agree</span>
+                    </div>
+                </div>
+                <div class="post-body">
+                    ddsadsa
+
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    <div class="col-3 order-sm-1 order-md-2">
+        <div class="card">
+            <div class="d-flex justify-content-between">
+                <div class="user">
+                    <div>
+                            <span class="fancy-bg">
+                              <i class="fas fa-meteor fa-fw"></i>
+                            </span>
+                    </div>
+                    <div>
+                        <div class="mb-n1"><%= (user.display) ? user.display : user.username %></div>
+                        <div class="text-secondary">u/<%= user.username %></div>
+                    </div>
+                </div>
+                <div>
+                    <a href="/profile">Edit</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="card-title">Community Ratings</div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="text-secondary">Controversiality</div>
+                <div class="d-flex">
+                    <div class="rating fill"></div>
+                    <div class="rating fill"></div>
+                    <div class="rating"></div>
+                    <div class="rating"></div>
+                    <div class="rating"></div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="text-secondary">Hostility</div>
+                <div class="d-flex">
+                    <div class="rating fill"></div>
+                    <div class="rating"></div>
+                    <div class="rating"></div>
+                    <div class="rating"></div>
+                    <div class="rating"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

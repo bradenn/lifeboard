@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-4 col-lg-6 col-md-12"></div>
+        <div class="col-xl-4 col-lg-6 col-md-12 mt-4">
+            <div class="text-center">
+                <i class="fas fa-shield-alt fa-fw fa-4x text-accent mb-4"></i>
+            </div>
+            <div class="card">
+                <div class="d-flex justify-content-between align-items-center pb-2">
+                    <h4 class="">Register</h4>
+                    <div><%= error %></div>
+                </div>
+                <form action="/register" method="post">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control"/>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="/login">Login</a>
+                        <button class="btn btn-primary submit" type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-md-12"></div>
+    </div>
+</div>
