@@ -1,0 +1,98 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/sidebar.ejs') %>
+<div class="content">
+    <div class="title">
+        <%= project.name %>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <div class="context pb-4">
+                <div class="header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span>Up Next</span>
+                        <a href="#" data-toggle="modal" data-target="#newTask"><i class="fas fa-plus"></i></a>
+                    </div>
+                    <div class="modal fade" id="newTask" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="desc">Description</label>
+                                            <input type="text" name="desc" id="desc" class="form-control" placeholder="Open the pod bay doors...">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary">Add Item</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-list">
+                    <div class="task">
+                        <i class="far fa-check-circle mr-2"></i>Reallocate resources to sector 41
+                    </div>
+                    <div class="task">
+                        <i class="far fa-circle mr-2"></i>Reallocate resources to sector 41
+                    </div>
+                </div>
+            </div>
+            <div class="context">
+                <div class="header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span>Deadlines</span>
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+                <div class="task-list">
+                    <div class="task">
+                        <i class="far fa-check-circle mr-2"></i>Reallocate resources to sector 41
+                    </div>
+                    <div class="task">
+                        <i class="far fa-circle mr-2"></i>Reallocate resources to sector 41
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="context pb-4">
+                <div class="header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span>Proposal</span>
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+
+                <div class="task-list">
+                    <div class="task">
+                        <%= project.proposal %>
+                    </div>
+                </div>
+            </div>
+            <div class="context">
+                <div class="header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span>Unicity</span>
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+
+                <div class="task-list">
+                    <div class="task">
+                        <%= project.unicity %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<%- include('partials/footer.ejs') %>

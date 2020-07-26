@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/sidebar.ejs') %>
+<div class="content">
+    <div class="title">
+        New Project
+    </div>
+    <div class="card">
+        <form action="/projects" method="post">
+            <div class="form-group">
+                <label for="name">Project Name</label>
+                <input type="text" placeholder="My Awesome Project" name="name" id="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="proposal">Proposal</label>
+                <textarea placeholder="Your big pitch..." rows=3 name="proposal" id="proposal" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="unicity">Unicity</label>
+                <textarea placeholder="How is this project unique? Has it been done before?" rows=3 name="unicity" id="unicity" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Start Project</button>
+            </div>
+        </form>
+    </div>
+</div>
+<%- include('partials/footer.ejs') %>

@@ -14,7 +14,7 @@ router.use((req, res, next) => {
 
 router.use('/', require('./root'));
 router.use('/contribute', require('./contribute'));
-router.use('/post', require('./post'));
+router.use('/projects', require('./projects'));
 
 router.get('/logout', function (req, res, next) {
     if (req.session) {

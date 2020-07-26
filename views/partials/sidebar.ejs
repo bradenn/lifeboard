@@ -1,13 +1,14 @@
 <%
 let isActive = (target) => {
-    return (url === target || (url.includes('post') && target === '/discussion'))?'active':'';
+    return (url === target || (url.includes('post') && target === '/discussion')) ? 'active' : '';
 };
 %>
 <div class="sidebar">
-    <span class="title"><img src="/images/logo.png">Life<b>Board</b></span>
-    <a href="#" class="active">Dashboard</a>
-    <a href="#">Planner</a>
+
+        <span class="title"><img src="/images/logo.png"><a href="/" class="text-white">Life<b>Board</b></a></span>
+
+    <a href="/" class="active">Dashboard</a>
     <a href="#">Projects</a>
-    <a href="#">Notes</a>
-    <a href="#">Lists</a>
+    <a href="#">Account</a>
+    <a href="#">Logout</a>
 </div>
